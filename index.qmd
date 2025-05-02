@@ -142,8 +142,6 @@ ggplotly(s_plot)
 ```
 
 
-
-
 ## 📈 Advanced Chart
 
 One problem with the simple chart on the previous tab is that the countries are fixed. It would be better if the user could select the countries they want to see. This is not possible with `plotly` alone, but with the `crosstalk` package and some custom JavaScript, we can achieve this, as demonstrated below.
