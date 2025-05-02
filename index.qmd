@@ -122,8 +122,6 @@ cantril %>%
 # 6. Use theme_minimal to set the theme.
 # 7. Finally, use ggplotly to convert the ggplot chart to a plotly chart
 
-"WRITE_YOUR_CODE_HERE"
-
 countries <- c("Kenya", "Tanzania", "Uganda", "South Africa", "Nigeria", "Ghana")
 cantril %>% select(`Cantril ladder score`)
 f_data <- cantril %>%
@@ -144,7 +142,7 @@ ggplotly(s_plot)
 ```
 
 
-:::
+
 
 ## 📈 Advanced Chart
 
@@ -213,3 +211,5 @@ window.onload = filter_default;
 Data source: World Happiness Report
 
 [OurWorldInData.org/happiness-and-life-satisfaction](https://ourworldindata.org/grapher/happiness-cantril-ladder) | CC BY
+
+:::
