@@ -196,11 +196,39 @@ window.onload = filter_default;
 </script>
 
 
+## 📈 Top 10 and Bottom 10 Countries (2023)
+
 ```{r}
 # OPTIONAL CHALLENGE SECTION:
 
 # Add a final tab with a single figure that shows the top 10 and bottom 10 countries by happiness score in 2023. Remember to add a ## header and include it in the tabsets
-# "WRITE_YOUR_CODE_HERE"
+top_bottom_data <- cantril %>%
+  filter(Year == 2023) %>%
+  select(Country, `Cantril ladder score`) %>%
+  arrange(desc(`Cantril ladder score`))
+
+# 2. Get top 10 and bottom 10
+top_10 <- top_bottom_data %>% slice_head(n = 10)
+bottom_10 <- top_bottom_data %>% slice_tail(n = 10)
+
+# 3. Combine and add a 'Group' label
+combined_data <- bind_rows(
+  top_10 %>% mutate(Group = "Top 10"),
+  bottom_10 %>% mutate(Group = "Bottom 10")
+)
+
+# 4. Plot the data
+ggplot(combined_data, aes(x = reorder(Country, `Cantril ladder score`), y = `Cantril ladder score`, fill = Group)) +
+  geom_col() +
+  coord_flip() +
+  labs(
+    title = "Top 10 and Bottom 10 Countries by Happiness Score (2023)",
+    x = "Country",
+    y = "Happiness Score (0–10)",
+    fill = "Group"
+  ) +
+  scale_y_continuous(limits = c(0, 10)) +
+  theme_minimal()
 ```
 
 
